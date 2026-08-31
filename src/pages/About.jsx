@@ -32,7 +32,7 @@ export default function About() {
               HALVOR was founded on a simple belief: the exterior of a home deserves the same level of care and precision as its interior. We do not see cleaning as manual labor — we see it as restoration, returning every surface to its original, structural purity.
             </p>
             <p className="mt-5 text-muted-foreground leading-relaxed">
-              Today we focus on pressure washing and window cleaning, delivering each to an uncompromising standard. As we grow, we are expanding into additional home services — bringing the same engineering rigor to every surface we touch.
+              Today we focus on pressure washing, and delivering each to an uncompromising standard. As we grow, we are expanding into additional home services — bringing the same engineering rigor to every surface we touch.
             </p>
             <Button asChild className="mt-8 rounded-full">
               <Link to="/contact">Work with us</Link>
