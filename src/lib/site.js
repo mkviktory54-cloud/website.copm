@@ -97,25 +97,29 @@ export const PACKAGES = [
   {
     id: 'driveway-cleaning',
     name: 'Driveway Cleaning',
-    price: '$75–$175',
+    price: '$150+',
     description:
-      'Professional driveway cleaning designed to restore the appearance of your concrete and improve curb appeal.',
-    includes: ['Driveway cleaning'],
+      'Professional driveway cleaning designed to remove dirt, grime, and buildup while restoring the appearance of your concrete and improving curb appeal.',
+    includes: [
+      'Driveway cleaning',
+    ],
   },
   {
     id: 'house-exterior-wash',
     name: 'House Exterior Wash',
-    price: '$150–$500',
+    price: '$300+',
     description:
-      'A professional exterior wash designed to remove dirt, grime, and organic buildup from your home.',
-    includes: ['House exterior wash'],
+      'A professional soft wash designed to remove dirt, grime, algae, and organic buildup from your home’s exterior.',
+    includes: [
+      'House exterior wash',
+    ],
   },
   {
     id: 'house-refresh',
-    name: 'House Refresh',
-    price: '$225',
+    name: 'The Halvor Refresh',
+    price: '$400+',
     description:
-      'A simple exterior refresh combining your home exterior and driveway for a cleaner overall appearance.',
+      'A simple exterior refresh combining your house exterior and driveway for a noticeable improvement in your property’s appearance.',
     includes: [
       'House exterior wash',
       'Driveway cleaning',
@@ -124,9 +128,9 @@ export const PACKAGES = [
   {
     id: 'curb-appeal',
     name: 'Curb Appeal',
-    price: '$275',
+    price: '$475+',
     description:
-      'A complete exterior refresh focused on the surfaces that make the biggest difference in your property’s appearance.',
+      'A complete front-of-property refresh focused on the surfaces that make the biggest difference in your property’s appearance.',
     includes: [
       'House exterior wash',
       'Driveway cleaning',
@@ -136,26 +140,28 @@ export const PACKAGES = [
   {
     id: 'the-halvor',
     name: 'The Halvor',
-    price: '$350',
+    price: '$550+',
     popular: true,
     description:
-      'Our most popular complete exterior package, combining the core services needed for a noticeable property refresh.',
+      'Our most popular exterior cleaning package, combining the core services needed for a noticeable property transformation.',
     includes: [
       'House exterior wash',
       'Driveway cleaning',
+      'Sidewalk cleaning',
     ],
   },
   {
     id: 'the-halvor-signature',
     name: 'The Halvor Signature',
-    price: '$500',
+    price: '$750+',
     featured: true,
     description:
-      'The complete HALVOR experience with comprehensive exterior cleaning and additional surface care.',
+      'The complete HALVOR experience for customers who want a more comprehensive exterior transformation.',
     includes: [
       'Everything in The Halvor',
-      'Additional exterior surfaces',
       'Patio cleaning',
+      'Additional exterior surfaces',
+      'Detailed surface treatment where needed',
     ],
   },
 ];
