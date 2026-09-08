@@ -9,48 +9,29 @@ const SERVICES = [
     id: 'driveway',
     label: 'Driveway Cleaning',
     price: 150,
-    description: 'Professional cleaning to restore the appearance of your driveway and improve curb appeal.',
+    description:
+      'Professional cleaning designed to remove dirt, grime, and buildup while restoring the appearance of your driveway.',
   },
   {
     id: 'house',
     label: 'House Exterior Wash',
     price: 300,
-    description: 'A professional soft wash designed to remove dirt, grime, algae, and organic buildup.',
+    description:
+      'A professional soft wash designed to remove dirt, grime, algae, and organic buildup from your home’s exterior.',
   },
   {
     id: 'deck',
     label: 'Deck & Patio Cleaning',
     price: 175,
-    description: 'Thorough cleaning for decks and patios to refresh your outdoor living spaces.',
+    description:
+      'Thorough cleaning designed to refresh your deck or patio and improve its overall appearance.',
   },
   {
     id: 'roof',
     label: 'Roof Soft Wash',
     price: 300,
-    description: 'A gentle soft-wash approach designed for appropriate roof surfaces.',
-  },
-];
-
-const PACKAGES = [
-  {
-    name: 'The Halvor Refresh',
-    price: 400,
-    description: 'House exterior + driveway',
-  },
-  {
-    name: 'Curb Appeal',
-    price: 475,
-    description: 'House exterior + driveway + sidewalk',
-  },
-  {
-    name: 'The Halvor',
-    price: 550,
-    description: 'Our most popular complete exterior package',
-  },
-  {
-    name: 'The Halvor Signature',
-    price: 750,
-    description: 'Our most comprehensive exterior cleaning package',
+    description:
+      'A professional soft-wash approach designed for appropriate roof surfaces.',
   },
 ];
 
@@ -59,7 +40,8 @@ const fmt = (n) => '$' + Math.round(n).toLocaleString();
 export default function PriceEstimator() {
   const [selected, setSelected] = useState('driveway');
 
-  const service = SERVICES.find((item) => item.id === selected);
+  const service =
+    SERVICES.find((item) => item.id === selected) || SERVICES[0];
 
   return (
     <section className="py-20 sm:py-28 bg-secondary border-t border-border">
@@ -82,7 +64,7 @@ export default function PriceEstimator() {
 
         <Reveal delay={0.1}>
           <div className="mt-10 grid lg:grid-cols-3 gap-px bg-border rounded-lg overflow-hidden border border-border">
-
+            
             {/* Services */}
             <div className="lg:col-span-2 bg-card p-6 sm:p-8">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
@@ -124,7 +106,7 @@ export default function PriceEstimator() {
               </div>
             </div>
 
-            {/* Estimate */}
+            {/* Starting Price */}
             <div className="bg-background p-6 sm:p-8 flex flex-col">
               <h3 className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">
                 Starting Price
@@ -140,7 +122,12 @@ export default function PriceEstimator() {
 
               <p className="mt-4 text-xs text-muted-foreground leading-relaxed">
                 Final pricing depends on the size, condition, staining,
-                accessibility, and scope of the job.
+                accessibility, and overall scope of the job.
+              </p>
+
+              <p className="mt-4 text-xs text-muted-foreground leading-relaxed">
+                The Halvor team will provide your official final quote after
+                reviewing your exact job details.
               </p>
 
               <div className="mt-auto pt-8">
@@ -159,54 +146,6 @@ export default function PriceEstimator() {
                   No-obligation quote.
                 </p>
               </div>
-            </div>
-          </div>
-        </Reveal>
-
-        {/* Packages */}
-        <Reveal delay={0.15}>
-          <div className="mt-16">
-            <div className="text-center">
-              <span className="text-xs font-medium uppercase tracking-[0.2em] text-primary">
-                Package Pricing
-              </span>
-
-              <h3 className="mt-3 text-2xl sm:text-3xl font-semibold">
-                Get more done in one visit.
-              </h3>
-            </div>
-
-            <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {PACKAGES.map((pkg) => (
-                <div
-                  key={pkg.name}
-                  className="rounded-lg border border-border bg-card p-6"
-                >
-                  <h4 className="font-semibold">{pkg.name}</h4>
-
-                  <div className="mt-3 text-2xl font-semibold">
-                    {fmt(pkg.price)}+
-                  </div>
-
-                  <p className="mt-2 text-sm text-muted-foreground">
-                    {pkg.description}
-                  </p>
-
-                  <Button
-                    asChild
-                    variant="outline"
-                    className="mt-6 w-full rounded-full"
-                  >
-                    <Link
-                      to={`/contact?service=${encodeURIComponent(
-                        pkg.name
-                      )}`}
-                    >
-                      Get a Quote
-                    </Link>
-                  </Button>
-                </div>
-              ))}
             </div>
           </div>
         </Reveal>
