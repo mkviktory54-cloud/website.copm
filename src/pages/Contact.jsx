@@ -14,9 +14,8 @@ import {
   Calendar,
   Loader2,
   Ruler,
-  Camera,
 } from 'lucide-react';
-import { SERVICES, COMPANY } from '@/lib/site';
+import { COMPANY } from '@/lib/site';
 import Reveal from '@/components/Reveal';
 
 const STEPS = ['Property', 'Service', 'Details'];
@@ -25,22 +24,26 @@ const SERVICE_OPTIONS = [
   {
     id: 'driveway',
     name: 'Driveway Cleaning',
-    description: 'Clean and restore your driveway and improve curb appeal.',
+    description:
+      'Clean and restore your driveway and improve curb appeal.',
   },
   {
     id: 'house',
     name: 'House Exterior Wash',
-    description: 'Professional soft washing for your home exterior.',
+    description:
+      'Professional soft washing for your home exterior.',
   },
   {
     id: 'deck',
     name: 'Deck & Patio Cleaning',
-    description: 'Refresh your outdoor living spaces.',
+    description:
+      'Refresh your outdoor living spaces.',
   },
   {
     id: 'roof',
     name: 'Roof Soft Wash',
-    description: 'Gentle soft washing for appropriate roof surfaces.',
+    description:
+      'Gentle soft washing for appropriate roof surfaces.',
   },
 ];
 
@@ -67,8 +70,6 @@ export default function Contact() {
     phone: '',
     message: '',
   });
-
-  const [photos, setPhotos] = useState([]);
 
   const [state, handleSubmit] = useForm('xwleknoj');
 
@@ -102,15 +103,6 @@ export default function Contact() {
 
   const previousStep = () => {
     setStep((current) => current - 1);
-  };
-
-  const handlePhotoChange = (event) => {
-    const files = Array.from(event.target.files || []);
-
-    // Keep uploads manageable.
-    const selectedFiles = files.slice(0, 5);
-
-    setPhotos(selectedFiles);
   };
 
   return (
@@ -171,11 +163,10 @@ export default function Contact() {
           {/* Quote Form */}
           <form
             onSubmit={handleSubmit}
-            encType="multipart/form-data"
             className="mt-10 rounded-lg border border-border bg-card p-6 sm:p-8"
           >
 
-            {/* Hidden fields */}
+            {/* Hidden fields for Formspree */}
             <input
               type="hidden"
               name="address"
@@ -239,6 +230,7 @@ export default function Contact() {
             {/* STEP 1 — PROPERTY */}
             {step === 0 && (
               <div className="space-y-5 animate-fade-in">
+
                 <div className="flex items-center gap-2 text-primary">
                   <MapPin className="w-5 h-5" />
 
@@ -284,12 +276,14 @@ export default function Contact() {
                     We'll confirm availability with you.
                   </p>
                 </div>
+
               </div>
             )}
 
             {/* STEP 2 — SERVICE */}
             {step === 1 && (
               <div className="space-y-5 animate-fade-in">
+
                 <div className="flex items-center gap-2 text-primary">
                   <Sparkles className="w-5 h-5" />
 
@@ -299,6 +293,7 @@ export default function Contact() {
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-3">
+
                   {SERVICE_OPTIONS.map((service) => {
                     const active =
                       form.service_needed === service.name;
@@ -384,6 +379,7 @@ export default function Contact() {
                       Tell us what you need in the next step.
                     </p>
                   </button>
+
                 </div>
               </div>
             )}
@@ -446,18 +442,23 @@ export default function Contact() {
                     <option value="">
                       Select an option
                     </option>
+
                     <option value="Light">
                       Light — mostly clean
                     </option>
+
                     <option value="Moderate">
                       Moderate — noticeable dirt/build-up
                     </option>
+
                     <option value="Heavy">
                       Heavy — significant buildup or staining
                     </option>
+
                     <option value="Severe">
                       Severe — extensive staining or growth
                     </option>
+
                     <option value="Not sure">
                       Not sure
                     </option>
@@ -480,42 +481,6 @@ export default function Contact() {
                     placeholder="Oil stains, rust, algae, heavy dirt, etc."
                     className="mt-1.5"
                   />
-                </div>
-
-                {/* Photos */}
-                <div>
-                  <Label htmlFor="photos">
-                    Photos of the area
-                  </Label>
-
-                  <label
-                    htmlFor="photos"
-                    className="mt-1.5 flex cursor-pointer items-center justify-center gap-2 rounded-lg border border-dashed border-border bg-background px-4 py-6 text-sm text-muted-foreground transition-colors hover:border-primary hover:text-foreground"
-                  >
-                    <Camera className="w-5 h-5" />
-
-                    <span>
-                      {photos.length > 0
-                        ? `${photos.length} photo${
-                            photos.length === 1 ? '' : 's'
-                          } selected`
-                        : 'Upload up to 5 photos'}
-                    </span>
-                  </label>
-
-                  <input
-                    id="photos"
-                    type="file"
-                    name="photos"
-                    accept="image/*"
-                    multiple
-                    onChange={handlePhotoChange}
-                    className="sr-only"
-                  />
-
-                  <p className="mt-1.5 text-xs text-muted-foreground">
-                    Photos help us understand the condition of the property.
-                  </p>
                 </div>
 
                 {/* Contact */}
