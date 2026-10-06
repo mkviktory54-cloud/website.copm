@@ -87,8 +87,7 @@ export default function Contact() {
     }
   };
 
-  const submitForm = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+const submitForm = async (event) => {    event.preventDefault();
 
     await handleSubmit({
       ...form,
